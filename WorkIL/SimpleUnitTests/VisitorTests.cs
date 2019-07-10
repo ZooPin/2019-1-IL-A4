@@ -21,6 +21,20 @@ namespace SimpleUnitTests
             v.Result.Should().Be( expected );
         }
 
+        [TestCase( "3*x+78+y*3", 987, 22, 3.0 * 987 + 78 + 22 * 3)]
+        public void with_x_and_y_variable( string toParse, double x, double y, double expected )
+        {
+            var n = new SimpleAnalyzer().Parse( toParse );
+            var d = new Dictionary<string, double>
+            {
+                { "x", x },
+                { "y", y }
+            };
+            var v = new ComputeVisitor( d );
+            v.VisitNode( n );
+            v.Result.Should().Be( expected );
+        }
+
         [Test]
         public void print_visitor_in_action()
         {

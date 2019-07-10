@@ -1,3 +1,4 @@
+using ITI.Analyzer;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,9 @@ namespace ITI.Genetic
 
                     double resultFs = SecretFunction(x, y); // Compute secret function with x and y 
                     double resultCandidate = Candidate(x, y); // Compute candidate function with x and y
-
+                    //
+                    //var v = new ComputeVisitor();
+                    //
                     gap += GapBetween( resultFs, resultCandidate );
 
                     count++;
@@ -27,6 +30,7 @@ namespace ITI.Genetic
             }
             Console.WriteLine($"Loop : {count}" );
             Console.WriteLine($"Gap between secret and candidate : {gap}");
+            // Add to the heap
         }
 
 

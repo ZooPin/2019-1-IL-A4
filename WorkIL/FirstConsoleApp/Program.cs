@@ -83,6 +83,8 @@ namespace FirstConsoleApp
             // Debug.Assert( lsu[0].Power == 0 );
             */
             Temp.ComputeInRange();
+
+            Heap<ComparableAST> heap = new Heap<ComparableAST>();
         }
 
     }
