@@ -1,3 +1,4 @@
+using ITI.Genetic;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -54,6 +55,7 @@ namespace FirstConsoleApp
     {
         static void Main( string[] args )
         {
+            /*
             var acu = new CUser[100];
             var asu = new SUser[100];
 
@@ -79,6 +81,8 @@ namespace FirstConsoleApp
             // lsu[0].Power = 42;
             // We'd have had 0 here instead of the expercted 42...
             // Debug.Assert( lsu[0].Power == 0 );
+            */
+            Temp.ComputeInRange();
         }
 
     }

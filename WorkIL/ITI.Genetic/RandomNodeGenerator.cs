@@ -7,6 +7,6 @@ namespace ITI.Genetic
 {
     class RandomNodeGenerator
     {
-        Node _node = new Node();
+
     }
 }
