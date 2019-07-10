@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System;
 using ITI.Analyzer;
 
@@ -5,72 +6,66 @@ namespace ITI.Genetic
 {
     public class GetRandomNodeVisitor: NodeVisitor
     {
-        public Node ChoosenOne {get; private set;}
+        private int _choosen {get; set;}
+        private Node _choosenNode {get; set;}
         private Random _r = new Random();
-        public int TotalNode;
+        private int _totalNode;
         private int _count;
         public void Clear()
         {
             _count = 0;
-            TotalNode = 0;
-            ChoosenOne = null;
+            _choosenNode = null;
+        }
+
+        public Node Get(Node n, int totalNode)
+        {
+            _choosen = _r.Next(0, totalNode);
+            base.VisitNode(n);
+            return _choosenNode;
         }
 
         public override void Visit(BinaryNode n)
         {
-            if (IsTheChoosenOne())
-            {
-                ChoosenOne = n;
+            if(IsOver) return;
+            if(IsTheChoosenOne(n))
                 return;
-            }
 
             VisitNode(n.Left);
-            if (ChoosenOne == null)
-                VisitNode(n.Right);
+            VisitNode(n.Right);
         }
 
         public override void Visit(ConstantNode n)
         {
-            if(IsTheChoosenOne())
-            {
-                ChoosenOne = n;
-                return;
-            }
+            if(IsOver) return;
+            IsTheChoosenOne(n);
         }
 
         public override void Visit(IdentifierNode n)
         {
-            if (IsTheChoosenOne())
-            {
-                ChoosenOne = n;
-                return;
-            }
+            if(IsOver) return;
+            IsTheChoosenOne(n);
         }
 
         public override void Visit(IfNode n)
         {
-            if (IsTheChoosenOne())
-            {
-                ChoosenOne = n;
+            if(IsOver) return;
+            if (IsTheChoosenOne(n))
                 return;
-            }
 
-            if (ChoosenOne != null)
-                VisitNode(n.Condition);
-
-            if (ChoosenOne != null)
-                VisitNode(n.WhenTrue);
-            
-            if (ChoosenOne != null)
-                VisitNode(n.WhenFalse);
+            VisitNode(n.Condition);
+            VisitNode(n.WhenTrue);
+            VisitNode(n.WhenFalse);
         }
 
-        private bool IsTheChoosenOne()
+        private bool IsTheChoosenOne(Node n)
         {
-            if (_count++ >= TotalNode)
+            if (_count++ == _choosen)
+            {
+                _choosenNode = n;
                 return true;
-
-            return _r.Next(0, 100) > 70;
+            }
+            return false;
         }
+        private bool IsOver => _choosenNode != null; 
     }
 }
