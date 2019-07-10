@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITI.Analyzer\ITI.Analyzer.csproj" />
+    <ProjectReference Include="..\ITI.Tokenizer\ITI.Tokenizer.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
