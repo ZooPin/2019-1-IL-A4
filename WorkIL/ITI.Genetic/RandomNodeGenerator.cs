@@ -51,27 +51,27 @@ namespace ITI.Genetic
             return ConstantNode();
         }
 
-        public BinaryNode BinaryNode()
+        private BinaryNode BinaryNode()
         {
             return new BinaryNode(Operation(), ConstantOrIdentifierNode(), ConstantOrIdentifierNode());
         }
 
-        public ConstantNode ConstantNode()
+        private ConstantNode ConstantNode()
         {
             return new ConstantNode(_r.NextDouble()*100);
         }
 
-        public IfNode IfNode()
+        private IfNode IfNode()
         {
             return new IfNode(BinaryOrIdentifierOrConstantNode(), BinaryOrIdentifierOrConstantNode(), BinaryOrIdentifierOrConstantNode());
         }
 
-        public UnaryNode UnaryNode()
+        private UnaryNode UnaryNode()
         {
             return new UnaryNode(TokenType.Minus, BinaryOrIdentifierOrConstantNode());
         }
 
-        public IdentifierNode IdentifierNode()
+        private IdentifierNode IdentifierNode()
         {
             return new IdentifierNode(_identifier[_r.Next(0, _identifier.Length-1)]);
         }
@@ -87,7 +87,5 @@ namespace ITI.Genetic
                     throw new NotSupportedException();
             }
         }
-
-
     }
 }
