@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\ITI.Analyzer\ITI.Analyzer.csproj" />
@@ -6,7 +6,11 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ITI.Analyzer\ITI.Analyzer.csproj" />
+  </ItemGroup>
 
 </Project>
