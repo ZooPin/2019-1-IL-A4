@@ -49,6 +49,13 @@ namespace ITI.Genetic
             IsTheChoosenOne(n);
         }
 
+        public override void Visit(UnaryNode n)
+        {
+            if(IsOver) return;
+            IsTheChoosenOne(n);
+            VisitNode(n.Operand);
+        } 
+
         public override void Visit(IfNode n)
         {
             if(IsOver) return;
