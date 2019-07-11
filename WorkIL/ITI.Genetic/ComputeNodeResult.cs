@@ -20,7 +20,7 @@ namespace ITI.Genetic
 
         public int CompareTo( ComputeNodeResult other )
         {
-            return (this.Gap.CompareTo( other.Gap ) * 1); // Opposite
+            return (this.Gap.CompareTo( other.Gap ) * -1);
         }
     }
 }
