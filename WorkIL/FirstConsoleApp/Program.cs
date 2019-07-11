@@ -82,9 +82,7 @@ namespace FirstConsoleApp
             // We'd have had 0 here instead of the expercted 42...
             // Debug.Assert( lsu[0].Power == 0 );
             */
-            Temp.ComputeInRange();
-
-            Heap<ComputeNodeResult> heap = new Heap<ComputeNodeResult>();
+            
         }
 
     }
