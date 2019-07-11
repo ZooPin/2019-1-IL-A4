@@ -9,16 +9,8 @@ namespace ITI.Genetic
 {
     public class OptimizationVisitor : MutationVisitor
     {
-
-        public int NodeCount  { get; private set;}
-        public void Clear()
-        {
-            NodeCount = 0;
-        }
-
         public override Node Visit( UnaryNode n )
         {
-            NodeCount++;
             Debug.Assert( n.Type == TokenType.Minus );
 
             var oV = VisitNode( n.Operand );
@@ -29,21 +21,8 @@ namespace ITI.Genetic
             return oV == n.Operand ? n : new UnaryNode( n.Type, oV );
         }
 
-        public override Node Visit(ConstantNode n)
-        {
-            NodeCount++;
-            return base.Visit(n);
-        }
-
-        public override Node Visit(IdentifierNode n)
-        {
-            NodeCount++;
-            return base.Visit(n);
-        }
-        
         public override Node Visit( BinaryNode n )
         {
-            NodeCount++;
             var lV = VisitNode( n.Left );
             var rV = VisitNode( n.Right );
 
@@ -81,7 +60,6 @@ namespace ITI.Genetic
 
         public override Node Visit( IfNode n )
         {
-            NodeCount++;
             var cV = VisitNode( n.Condition );
             var tV = VisitNode( n.WhenTrue );
             var fV = n.WhenFalse != null ? VisitNode( n.WhenFalse ) : null;

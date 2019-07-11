@@ -9,6 +9,7 @@ namespace ITI.Genetic
         private int _choosen {get; set;}
         private Node _choosenNode {get; set;}
         private Random _r = new Random();
+        private CountVisitor _countV = new CountVisitor();
         private int _totalNode;
         private int _count;
         public void Clear()
@@ -17,10 +18,12 @@ namespace ITI.Genetic
             _choosenNode = null;
         }
 
-        public Node Get(Node n, int totalNode)
+        public Node Get(Node n)
         {
-            _choosen = _r.Next(0, totalNode);
+            _countV.VisitNode(n);
+            _choosen = _r.Next(0, _countV.Count);
             base.VisitNode(n);
+            _countV.Clear();
             return _choosenNode;
         }
 

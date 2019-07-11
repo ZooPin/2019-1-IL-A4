@@ -11,12 +11,11 @@ namespace SimpleUnitTests
         public void test_calculator()
         {
             var _r = new RandomNodeGenerator();
-            var node = _r.Node();
-
             var randomOne = new GetRandomNodeVisitor();
-            var optiVis = new ITI.Genetic.OptimizationVisitor();
-            optiVis.VisitNode( node );
-            var n = randomOne.Get( node, optiVis.NodeCount );
+
+            var node = _r.Node();
+            var n = randomOne.Get( node);
+            
             n.Should().NotBeNull();
         }
     }
