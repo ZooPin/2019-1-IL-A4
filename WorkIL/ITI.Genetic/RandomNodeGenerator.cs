@@ -13,7 +13,7 @@ namespace ITI.Genetic
 
         public Node Node()
         {
-            switch(_r.Next(0, 4))
+            switch(_r.Next(0, 5))
             {
                 case 0: return BinaryNode();
                 case 1: return ConstantNode();
@@ -77,7 +77,7 @@ namespace ITI.Genetic
         }
         private TokenType Operation()
         {
-            switch(_r.Next(0, 3))
+            switch(_r.Next(0, 4))
             {
                 case 0: return TokenType.Plus;
                 case 1: return TokenType.Minus;
