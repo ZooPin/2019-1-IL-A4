@@ -73,7 +73,7 @@ namespace ITI.Genetic
 
         private IdentifierNode IdentifierNode()
         {
-            return new IdentifierNode(_identifier[_r.Next(0, _identifier.Length-1)]);
+            return new IdentifierNode(_identifier[_r.Next(0, _identifier.Length)]);
         }
         private TokenType Operation()
         {
