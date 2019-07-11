@@ -84,7 +84,7 @@ namespace FirstConsoleApp
             */
             Temp.ComputeInRange();
 
-            Heap<ComparableAST> heap = new Heap<ComparableAST>();
+            Heap<ComputeNodeResult> heap = new Heap<ComputeNodeResult>();
         }
 
     }
