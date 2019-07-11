@@ -22,9 +22,9 @@ namespace SimpleUnitTests
         [Test]
         public void test_create_child()
         {
-            var _r = new RandomNodeGenerator();
-            var daddy = _r.Node();
-            var mommy = _r.Node();
+            var _r = new RandomASTGenerator();
+            var daddy = _r.Generate();
+            var mommy = _r.Generate();
 
             var genMutator = new GeneticMutator();
 
