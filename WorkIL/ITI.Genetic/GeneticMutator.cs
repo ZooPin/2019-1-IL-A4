@@ -21,7 +21,7 @@ namespace ITI.Genetic
             if(RollDice(out var node))
                 return node;
 
-            return base.VisitNode(n);
+            return base.Visit(n);
         }
 
         public override Node Visit(ConstantNode n)
@@ -29,7 +29,7 @@ namespace ITI.Genetic
             if(RollDice(out var node))
                 return node;
 
-            return base.VisitNode(n);
+            return base.Visit(n);
         }
 
         public override Node Visit(IfNode n)
@@ -37,7 +37,7 @@ namespace ITI.Genetic
             if(RollDice(out var node))
                 return node;
 
-            return base.VisitNode(n);
+            return base.Visit(n);
         }
 
         public override Node Visit(UnaryNode n)
@@ -45,7 +45,7 @@ namespace ITI.Genetic
             if(RollDice(out var node))
                 return node;
 
-            return base.VisitNode(n);
+            return base.Visit(n);
         }
 
         public override Node Visit(IdentifierNode n)
@@ -53,7 +53,7 @@ namespace ITI.Genetic
             if(RollDice(out var node))
                 return node;
 
-            return base.VisitNode(n);
+            return base.Visit(n);
         }
 
         private bool RollDice(out Node value)
