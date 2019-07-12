@@ -28,7 +28,7 @@ namespace ITI.Genetic
 
         private double[,] ComputeDataSet( Node secretFunction )
         {
-            double[,] dataSet = new double[_xBoundary.StepCount,_yBoundary.StepCount];
+            double[,] dataSet = new double[_xBoundary.StepCount + 1,_yBoundary.StepCount + 1];
 
             for( var i = 0; i <= _xBoundary.StepCount; ++i )
             {

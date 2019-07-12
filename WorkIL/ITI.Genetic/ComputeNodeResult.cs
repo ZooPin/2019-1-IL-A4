@@ -20,6 +20,8 @@ namespace ITI.Genetic
 
         public int CompareTo( ComputeNodeResult other )
         {
+            if( double.IsNaN( this.Gap )) return -1;
+            if( double.IsNaN( other.Gap )) return 1;
             return (this.Gap.CompareTo( other.Gap ) * -1);
         }
     }
